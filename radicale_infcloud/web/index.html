@@ -232,7 +232,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 				<div id="repeatConfirmBoxQuestion"></div>
 				<input id='editAll' type="button" value="All events" /><br />
 				<input id='editFuture' type="button" value="All future events" /><br />
-				<input id='editOnlyOne' type="button" value="This event only"/><br />
+				<input id='editOnlyOnef' type="button" value="This event only"/><br />
 				<input type="button" data-type="closeRepeat" value="Close" onclick="$('#repeatConfirmBoxContent').html(''); $('#repeatConfirmBox').css('visibility', 'hidden'); $('#EventDisabler').fadeOut(globalEditorFadeAnimation);" />
 			</div>
 			<div id="event_details_template">
@@ -274,6 +274,27 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 							<td id="time_to_cell">
 								<input class="time small" type="text" data-type="PH_time_to" placeholder="Time to" id="time_to" name="time_to" />
 								<div class="invalidWrapper"><img data-type="invalidSmall" style="display: none;" src="images/error_b.svg" alt="invalid" /></div>
+							</td>
+						</tr>
+
+						<tr>
+							<td colspan="3">
+								<input id="show" type="hidden" value=""/>
+								<input id="uid" type="hidden" value=""/>
+								<input id="etag" type="hidden" value=""/>
+								<input id="repeatCount" type="hidden" value=""/>
+								<input id="repeatEvent" type="hidden" value=""/>
+								<input id="recurrenceID" type="hidden" value=""/>
+								<input id="futureStart" type="hidden" value=""/>
+								<input id="vcalendarHash" type="hidden" value=""/>
+								<input id="vcalendarUID" type="hidden" value=""/>
+								<input id="saveButton" type="submit" value="Save" data-type="save" onclick="updateEventFormDimensions(true);$('#CAEvent .saveLoader').show();save();" />
+								<input id="editButton" type="button" value="Edit" data-type="edit" onclick="startEditModeEvent();" />
+								<input id="duplicateButton" type="button" value="Duplicate" data-type="duplicate" onclick="duplicateEvent('')" />
+								<input id="editOptionsButton" type="button" value="edit repeat" data-type="editOptions" />
+								<input id="resetButton" type="button" value="Reset" data-type="reset" />
+								<input id="closeButton" type="button" value="Cancel" data-type="cancel" />
+								<input id="deleteButton" type="button" value="Delete" data-type="delete" onclick="updateEventFormDimensions(true);$('#CAEvent .saveLoader').show();deleteEvent();" />
 							</td>
 						</tr>
 						<tr class="timezone_row">
@@ -612,26 +633,6 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 							<td class="label"><label data-type="note" for="note">note: </label></td>
 							<td colspan="2">
 								<textarea class="long" name="note" data-type="PH_note" placeholder="Note" id="note" rows="2" cols="20"></textarea>
-							</td>
-						</tr>
-						<tr>
-							<td colspan="3">
-								<input id="show" type="hidden" value=""/>
-								<input id="uid" type="hidden" value=""/>
-								<input id="etag" type="hidden" value=""/>
-								<input id="repeatCount" type="hidden" value=""/>
-								<input id="repeatEvent" type="hidden" value=""/>
-								<input id="recurrenceID" type="hidden" value=""/>
-								<input id="futureStart" type="hidden" value=""/>
-								<input id="vcalendarHash" type="hidden" value=""/>
-								<input id="vcalendarUID" type="hidden" value=""/>
-								<input id="saveButton" type="submit" value="Save" data-type="save" onclick="updateEventFormDimensions(true);$('#CAEvent .saveLoader').show();save();" />
-								<input id="editButton" type="button" value="Edit" data-type="edit" onclick="startEditModeEvent();" />
-								<input id="duplicateButton" type="button" value="Duplicate" data-type="duplicate" onclick="duplicateEvent('')" />
-								<input id="editOptionsButton" type="button" value="edit repeat" data-type="editOptions" />
-								<input id="resetButton" type="button" value="Reset" data-type="reset" />
-								<input id="closeButton" type="button" value="Cancel" data-type="cancel" />
-								<input id="deleteButton" type="button" value="Delete" data-type="delete" onclick="updateEventFormDimensions(true);$('#CAEvent .saveLoader').show();deleteEvent();" />
 							</td>
 						</tr>
 					</table>
